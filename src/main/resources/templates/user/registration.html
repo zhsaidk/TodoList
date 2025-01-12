@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+        <form th:action="@{/users/create}" method="post">
+            <label for="firstName">FistName
+                <input type="text" name="firstName" id="firstName"/>
+            </label><br/>
+
+            <label for="lastName">LastName
+                <input type="text" name="lastName" id="lastName"/>
+            </label><br/>
+
+            <label for="username">LastName
+                <input type="text" name="username" id="username"/>
+            </label><br/>
+
+            <label for="birthDate">BirthDate
+                <input type="date" name="birthDate" id="birthDate"/>
+            </label><br/>
+
+            <div th:each="role : ${roles}">
+                <label for="role">
+                    <input type="radio" name="role" id="role"
+                           th:value="${role}"
+                           th:text="${role.name()}">
+                </label>
+            </div>
+
+            <button type="submit">Create</button>
+        </form><br>
+    </body>
+</html>

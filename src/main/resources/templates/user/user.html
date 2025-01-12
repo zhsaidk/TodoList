@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
     <body>
-        <form action="@{/users/{id}(id = ${user.id})}" method="post">
+        <form th:action="@{/users/update/{id}(id = ${user.id})}" method="post">
             <label for="firstName">FistName
                 <input type="text" name="firstName" id="firstName" th:value="${user.firstName}"/>
             </label><br/>
@@ -14,17 +14,32 @@
                 <input type="text" name="lastName" id="lastName" th:value="${user.lastName}"/>
             </label><br/>
 
+            <label for="username">LastName
+                <input type="text" name="username" id="username" th:value="${user.username}"/>
+            </label><br/>
+
             <label for="birthDate">BirthDate
                 <input type="date" name="birthDate" id="birthDate" th:value="${user.birthDate}"/>
             </label><br/>
 
-            <label for="role">Role
-                <input th:each="role : ${roles}" type="radio" name="role" id="role"
-                       th:value="${role.name()}"
-                       th:text="${role.name()}" th:selected="${user.role==role}"/><br/>
-            </label><br/>
+            <div th:each="role : ${roles}">
+                <label for="role">
+                    <input type="radio" name="role" id="role"
+                           th:value="${role.name()}"
+                           th:text="${role.name()}"
+                           th:checked="${user.role.name() == role.name()}">
+                </label>
+            </div>
 
             <button type="submit">Update</button>
+        </form><br><br>
+
+        <div th:each="task : ${user.tasks}">
+            <span th:text="${task.message}"></span>
+        </div><br>
+
+        <form th:action="@{/users/delete/{id}(id = ${user.id})}" method="post">
+            <button>Delete user!</button>
         </form>
     </body>
 </html>

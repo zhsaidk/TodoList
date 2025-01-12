@@ -4,9 +4,11 @@
 create table if not exists "users"
 (
     id         bigserial primary key,
-    first_name VARCHAR(64) NOT NULL,
-    last_name  VARCHAR(64) NOT NULL,
+    first_name VARCHAR(64)  NOT NULL,
+    last_name  VARCHAR(64)  NOT NULL,
+    username      VARCHAR(128) NOT NULL,
     birth_date DATE,
+    password   VARCHAR(128) NOT NULL,
     role       VARCHAR(32),
     constraint uq_full_name unique (first_name, last_name)
 );

@@ -1,10 +1,7 @@
 package zhsaidk.database.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -31,7 +28,12 @@ public class User {
     @Column(length = 64)
     private String lastName;
 
+    @Column(length = 124)
+    private String username;
+
     private LocalDate birthDate;
+
+    private String password;
 
     @Enumerated(value = EnumType.STRING)
     private Role role;
