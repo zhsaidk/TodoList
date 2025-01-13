@@ -1,4 +1,4 @@
-package zhsaidk.mapper;
+package zhsaidk.mapper.forUser;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

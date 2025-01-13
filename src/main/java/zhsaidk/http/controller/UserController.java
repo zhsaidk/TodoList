@@ -31,12 +31,6 @@ public class UserController {
         return "user/user";
     }
 
-    @GetMapping("/registration")
-    public String register(Model model) {
-        model.addAttribute("roles", Role.values());
-        return "user/registration";
-    }
-
     @PostMapping("/create")
     public String create(UserCreateEditDto userCreateEditDto) {
         return "redirect:/users/" + userService.createUser(userCreateEditDto).getId();

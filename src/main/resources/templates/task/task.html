@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+        <div>
+            <form action="/tasks" method="get">
+                <label for="search">
+                    <input type="text" id="search" name="search" placeholder="Напишите ваш запрос">
+                </label>
+                <button type="submit">Поиск</button>
+            </form>
+        </div><br/>
+
+
+        <div>
+            <form th:action="@{/tasks/create}" method="post">
+                <label for="message">
+                    <input type="text" id="message" name="message" placeholder="Напшите задачу"/>
+                </label>
+                <button>Добавить</button>
+            </form>
+            <form th:action="@{/tasks/clear}" method="post">
+                <button>Очистить всех</button>
+            </form>
+        </div><br/>
+
+        <div th:each="task : ${tasks}">
+            <form th:action="@{/tasks/delete/{id}(id = ${task.id})}" method="post">
+                <span th:text="|${task.message}|"></span>
+                <button type="submit">Delete</button>
+            </form><br/>
+        </div><br/>
+    </body>
+</html>

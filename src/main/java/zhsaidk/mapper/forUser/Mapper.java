@@ -1,4 +1,4 @@
-package zhsaidk.mapper;
+package zhsaidk.mapper.forUser;
 
 public interface Mapper <F, T>{
 

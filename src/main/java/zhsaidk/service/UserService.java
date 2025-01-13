@@ -12,8 +12,8 @@ import zhsaidk.database.dto.UserCreateEditDto;
 import zhsaidk.database.dto.UserDto;
 import zhsaidk.database.entity.User;
 import zhsaidk.database.repository.UserRepository;
-import zhsaidk.mapper.UserCreateEditMapper;
-import zhsaidk.mapper.UserReadMapper;
+import zhsaidk.mapper.forUser.UserCreateEditMapper;
+import zhsaidk.mapper.forUser.UserReadMapper;
 
 import java.util.List;
 import java.util.Optional;
@@ -76,4 +76,6 @@ public class UserService implements UserDetailsService {
                 Set.of(user.getRole())
         );
     }
+
+
 }

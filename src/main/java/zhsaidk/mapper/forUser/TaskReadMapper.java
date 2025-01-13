@@ -1,4 +1,4 @@
-package zhsaidk.mapper;
+package zhsaidk.mapper.forUser;
 
 import org.springframework.stereotype.Component;
 import zhsaidk.database.dto.TaskDto;

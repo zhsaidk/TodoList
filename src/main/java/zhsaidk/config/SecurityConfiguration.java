@@ -13,13 +13,13 @@ public class SecurityConfiguration {
         return http
                 .authorizeHttpRequests(authorizeRequests ->{
                     authorizeRequests.requestMatchers("/users").hasAuthority("ADMIN");
-                    authorizeRequests.requestMatchers("/users/registration", "/login").permitAll();
+                    authorizeRequests.requestMatchers("tasks").hasAnyAuthority("ADMIN", "USER");
+                    authorizeRequests.requestMatchers("/registration", "/users/create","/login").permitAll();
                     authorizeRequests.anyRequest().authenticated();
                 })
-                .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(login->{
                     login.loginPage("/login");
-                    login.defaultSuccessUrl("/users");
+                    login.defaultSuccessUrl("/tasks");
                 })
                 .build();
     }

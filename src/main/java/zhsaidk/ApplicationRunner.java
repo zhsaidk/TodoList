@@ -10,6 +10,7 @@ public class ApplicationRunner {
         ConfigurableApplicationContext context = SpringApplication.run(ApplicationRunner.class);
         System.out.println(context);
 
+
         /* todo 13012025 2:51  userService->findById Вызывает циклический зависимость, нужно починить (with Projections) */
     }
 }
